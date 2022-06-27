@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="inside">
+        <div class="card-group">
+            <app-song-item [song]="song" (change)="onRangChange($event)" *ngFor="let song of songs$ | async">
+            </app-song-item>
+        </div>
+    </div>
+</div>

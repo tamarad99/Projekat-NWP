@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="inside">
+        <mat-card class="example-card">
+            <div class="form-group">
+                <form #songForm="ngForm" (ngSubmit)="addSong(songForm)">
+                    <div ngModelGroup="song">
+                        <mat-card-title class="header">Add new song</mat-card-title><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="text" required placeholder="Title" name="name"
+                                    ngModel #name="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="text" required placeholder="Artist" name="artist"
+                                    ngModel #artist="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="text" required placeholder="Album" name="album"
+                                    ngModel #album="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="text" required placeholder="Image URL"
+                                    name="imageURL" ngModel #imageURL="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="text" required placeholder="Description"
+                                    name="description" ngModel #description="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="number" required placeholder="Year" name="year"
+                                    ngModel #year="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <mat-form-field class="example-full-width">
+                            <mat-card-subtitle><input matInput type="number" required placeholder="Rating" name="rang"
+                                    ngModel #rang="ngModel">
+                            </mat-card-subtitle>
+                        </mat-form-field><br>
+                        <br>
+                        <div class="header">
+                            <button mat-button class="btn btn-danger" type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+    </div>
+</div>
