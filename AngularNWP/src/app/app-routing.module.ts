@@ -9,6 +9,7 @@ import { SongListComponent } from './song-list/song-list.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { RemoveSongComponent } from './remove-song/remove-song.component'
+import { UpdateSongComponent } from './update-song/update-song.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "login", pathMatch: "full"},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: "song/list", component: SongListComponent},
   {path: "song/addSong", component: AddSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "song/removeSong", component: RemoveSongComponent, canActivate:[AuthGuardAdmin]},
+  {path: "song/updateSong", component: UpdateSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "**", component: LoginComponent}
 ];
 

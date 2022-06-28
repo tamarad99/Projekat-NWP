@@ -21,7 +21,7 @@
         </div>
     </div>
 </div> -->
-<!-- <form #remove="ngForm"> -->
+<form #remove="ngForm">
 <div class="card text-white bg-dark mb-3" style="width: 18rem;" style="margin-left:5px" *ngIf="song != undefined">
     <!-- *ngIf="song != undefined && song.album != undefined && song.album.artist != undefined"> -->
 
@@ -35,7 +35,8 @@
                 class="btn btn-light">-</button>{{song.rang}}
             <button (click)="incrementRating()" type="button" class="btn btn-light">+</button>
         </p>
-        <!-- <div *ngIf="role == 'admin'"><button (click)="removeSong(remove)" class="btn btn-light">Remove</button></div> -->
+        <div *ngIf="role == 'admin'"><button (click)="removeSong(remove)" class="btn btn-light">Remove</button></div>
     </div>
 </div>
+</form>
 <br>

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="inside">
+        <mat-card class="example-card">
+            <div class="form-group">
+                <form #songForm="ngForm" (ngSubmit)="updateSong(songForm)">
+                    <div ngModelGroup="song">
+                        <mat-card-title class="header">Update song</mat-card-title><br>
+                        <form class="search">
+                            <input class="form-control" type="search" aria-label="Choose song" placeholder="Choose song"><br>
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </form><br><br>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+    </div>
+</div>

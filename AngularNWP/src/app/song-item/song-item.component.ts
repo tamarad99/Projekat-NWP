@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Song } from '../model/song';
 import { SongRatingChange } from '../model/song-rating-change';
 import { SongService } from '../services/song.service';
@@ -41,8 +42,8 @@ export class SongItemComponent implements OnInit {
   @Output() public change: EventEmitter<SongRatingChange> = new EventEmitter();
 
   public role: string | undefined;
-  
-  constructor(private songService: SongService) { }
+
+  constructor(private songService: SongService, private router: Router) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('role')!;
@@ -56,9 +57,17 @@ export class SongItemComponent implements OnInit {
     this.change.emit({ song: this.song!, changeInRating: -1 })
 
   }
-  // removeSong(remove:any){
-  //   console.log(remove.value.song.id)
-  //   this.songService.removeSong(remove.value.song.id).subscribe((resp:any) => 
-  //   alert("Uspesno ste uklonili pesmu"))
-  // }
+  removeSong(remove: any) {
+    this.songService.removeSong(this.song!.id).subscribe((resp: any) => {
+      if (resp) {
+        alert("Uspesno ste uklonili pesmu")
+        window.location.reload()
+      }
+      else{
+        alert("Doslo je do greske!")
+        window.location.reload()
+      }
+    })
+
+  }
 }

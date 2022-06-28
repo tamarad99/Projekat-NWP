@@ -19,7 +19,8 @@ import { AuthGuardAdmin } from './guard/auth.guard.admin';
 import { AuthGuardUser } from './guard/auth.guard.user';
 import { AddSongComponent } from './add-song/add-song.component';
 import {MatSelectModule} from '@angular/material/select';
-import { RemoveSongComponent } from './remove-song/remove-song.component'
+import { RemoveSongComponent } from './remove-song/remove-song.component';
+import { UpdateSongComponent } from './update-song/update-song.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RemoveSongComponent } from './remove-song/remove-song.component'
     SongListComponent,
     SongListComponent,
     AddSongComponent,
-    RemoveSongComponent
+    RemoveSongComponent,
+    UpdateSongComponent
   ],
   imports: [
     BrowserModule,

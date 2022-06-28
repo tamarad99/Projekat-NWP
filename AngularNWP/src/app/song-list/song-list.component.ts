@@ -26,7 +26,8 @@ export class SongListComponent implements OnInit {
 
   onRangChange(change: SongRatingChange){
     this.songService.changeRating(change.song.id, change.changeInRating).
-    subscribe((res:any) =>  this.songs$ = this.songService.getSongs());
+    subscribe((res:any) =>  {this.songs$ = this.songService.getSongs();
+                              this.songSearch$ = undefined});
     alert("Uspesno ste izmenili ocenu")
     console.log("id: " + change.song.id)
     console.log("change: " + change.changeInRating)
