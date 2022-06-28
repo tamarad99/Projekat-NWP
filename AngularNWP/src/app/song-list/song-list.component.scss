@@ -18,5 +18,7 @@
 .search {
     margin-top: 20px;
     margin-left: 165px;
-    display: inline-block;
+    max-width: 20%;
+    //float:left;
+    display: flex;
 }
