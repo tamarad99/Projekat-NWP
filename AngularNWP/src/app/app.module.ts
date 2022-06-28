@@ -18,7 +18,8 @@ import { SongItemComponent } from './song-item/song-item.component';
 import { AuthGuardAdmin } from './guard/auth.guard.admin';
 import { AuthGuardUser } from './guard/auth.guard.user';
 import { AddSongComponent } from './add-song/add-song.component';
-import {MatSelectModule} from '@angular/material/select'
+import {MatSelectModule} from '@angular/material/select';
+import { RemoveSongComponent } from './remove-song/remove-song.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatSelectModule} from '@angular/material/select'
     SongItemComponent,
     SongListComponent,
     SongListComponent,
-    AddSongComponent
+    AddSongComponent,
+    RemoveSongComponent
   ],
   imports: [
     BrowserModule,

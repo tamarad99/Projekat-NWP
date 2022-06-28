@@ -1,8 +1,28 @@
-<div class="container">
-    <div class="inside">
-        <div class="card-group">
-            <app-song-item [song]="song" (change)="onRangChange($event)" *ngFor="let song of songs$ | async">
-            </app-song-item>
+<div *ngIf="songSearch$ != undefined">
+    <form class="search"(ngSubmit)="search()">
+        <input class="form-control" type="search" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form><br><br>
+    <div class="container">
+        <div class="inside">
+            <div class="card-group">
+                <app-song-item [song]="song" (change)="onRangChange($event)" *ngFor="let song of songSearch$ | async">
+                </app-song-item>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="songSearch$ == undefined">
+    <form class="search"(ngSubmit)="search()">
+        <input class="form-control" type="search" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form><br><br>
+    <div class="container">
+        <div class="inside">
+            <div class="card-group">
+                <app-song-item [song]="song" (change)="onRangChange($event)" *ngFor="let song of songs$ | async">
+                </app-song-item>
+            </div>
         </div>
     </div>
 </div>

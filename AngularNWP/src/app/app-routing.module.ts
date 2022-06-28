@@ -8,6 +8,7 @@ import { SongItemComponent } from './song-item/song-item.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { RemoveSongComponent } from './remove-song/remove-song.component'
 
 const routes: Routes = [
   {path: "", redirectTo: "login", pathMatch: "full"},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "song/item", component: SongItemComponent},
   {path: "song/list", component: SongListComponent},
   {path: "song/addSong", component: AddSongComponent, canActivate:[AuthGuardAdmin]},
+  {path: "song/removeSong", component: RemoveSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "**", component: LoginComponent}
 ];
 

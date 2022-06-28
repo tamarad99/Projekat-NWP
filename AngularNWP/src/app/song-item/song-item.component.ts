@@ -40,10 +40,12 @@ export class SongItemComponent implements OnInit {
   @Input() public song: Song | undefined;
   @Output() public change: EventEmitter<SongRatingChange> = new EventEmitter();
 
+  public role: string | undefined;
+  
   constructor(private songService: SongService) { }
 
   ngOnInit(): void {
-    
+    this.role = localStorage.getItem('role')!;
   }
 
   incrementRating() {
@@ -54,4 +56,9 @@ export class SongItemComponent implements OnInit {
     this.change.emit({ song: this.song!, changeInRating: -1 })
 
   }
+  // removeSong(remove:any){
+  //   console.log(remove.value.song.id)
+  //   this.songService.removeSong(remove.value.song.id).subscribe((resp:any) => 
+  //   alert("Uspesno ste uklonili pesmu"))
+  // }
 }

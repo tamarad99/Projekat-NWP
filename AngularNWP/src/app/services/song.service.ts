@@ -9,26 +9,37 @@ import { Song } from '../model/song';
 })
 export class SongService {
 
-  constructor(private httpClient: HttpClient, private router:Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   BASE = "http://localhost:8080";
 
-  getSongs():Observable<Song[]>{
+  getSongs(): Observable<Song[]> {
     return this.httpClient.get<Song[]>(this.BASE + "/song/songs")
   }
 
-  getSongById(id:number):Observable<any>{
+  getSongById(id: number): Observable<any> {
     return this.httpClient.get(this.BASE + "/song/getSongById", {
-      params: {id: id.toString()}
+      params: { id: id.toString() }
     })
   }
 
-  changeRating(id:number, change: number):Observable<any>{
+  changeRating(id: number, change: number): Observable<any> {
     let params = new HttpParams().set('id', id.toString()).set('change', change.toString())
     return this.httpClient.put(this.BASE + "/song/changeRating", params)
   }
 
-  addSong(song: Song):Observable<Song>{
+  addSong(song: Song): Observable<Song> {
     return this.httpClient.post<Song>(this.BASE + "/song/addSong", song)
+  }
+
+  search(search: string): Observable<Song[]> {
+    console.log("zove se search na frontu " + search)
+    let params = new HttpParams().set('search', search);
+    return this.httpClient.get<Song[]>(this.BASE + "/song/search", {params: params});
+  }
+
+  removeSong(id: number):Observable<any>{
+    let params = new HttpParams().set('id', id.toString());
+    return this.httpClient.post(this.BASE + "/song/removeSong", params)
   }
 }

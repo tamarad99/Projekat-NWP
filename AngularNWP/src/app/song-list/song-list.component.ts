@@ -13,14 +13,15 @@ import { SongService } from '../services/song.service';
 export class SongListComponent implements OnInit {
 
   public songs$: Observable<Song[]> | undefined;
+  public songSearch$: Observable<Song[]> | undefined;
   public reloadList: Subject<void> = new Subject();
-
+  public searchTerm: string | undefined;
+  public searchSubject: Subject<string> = new Subject();
   constructor(private songService:SongService) { }
 
   ngOnInit(): void {
-    // this.songService.getSongs().subscribe((resp:any) => {this.songs$ = resp
-    //   console.log(resp)})
     this.songs$ = this.songService.getSongs();
+    this.songSearch$ = undefined;
   }
 
   onRangChange(change: SongRatingChange){
@@ -29,5 +30,10 @@ export class SongListComponent implements OnInit {
     alert("Uspesno ste izmenili ocenu")
     console.log("id: " + change.song.id)
     console.log("change: " + change.changeInRating)
+  }
+
+  search(){
+    this.songSearch$ = this.songService.search(this.searchTerm!);
+    console.log(this.searchTerm);
   }
 }
