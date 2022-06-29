@@ -25,7 +25,8 @@
 <div class="card text-white bg-dark mb-3" style="width: 18rem;" style="margin-left:5px" *ngIf="song != undefined">
     <!-- *ngIf="song != undefined && song.album != undefined && song.album.artist != undefined"> -->
 
-    <img [src]="song.imageURL" class="card-img-top">
+    <img [src]="song.imageURL" class="card-img-top" style="max-width: 100%;
+    height: auto;" (click)="imageClick()">
     <div class="card-body">
         <h4 class="card-title">{{song.name}}</h4>
         <p class="card-text">Album: {{song.album}}</p>

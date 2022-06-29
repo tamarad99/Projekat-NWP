@@ -21,8 +21,14 @@
                     <li class="nav-item active">
                         <a class="nav-link" routerLink="/song/updateSong" routerLinkActive="active">Update song</a>
                     </li>
+                    <button class="btn btn-dark" mat-button [matMenuTriggerFor]="menu">Artists</button>
+                    <mat-menu #menu="matMenu">
+                        <div  *ngFor="let artist of artists">
+                            <button mat-menu-item (click)="artistSongs(artist)">{{artist}}</button>
+                        </div>
+                    </mat-menu>
                 </ul>
-                <div style="margin-left: 720px;">
+                <div style="margin-left: 600px;">
                     <button class="btn btn-light" (click)="logout()">Logout</button>
                 </div>
             </div>

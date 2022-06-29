@@ -42,6 +42,7 @@ export class SongItemComponent implements OnInit {
   @Output() public change: EventEmitter<SongRatingChange> = new EventEmitter();
 
   public role: string | undefined;
+  public videos: string[] | undefined;
 
   constructor(private songService: SongService, private router: Router) { }
 
@@ -68,6 +69,9 @@ export class SongItemComponent implements OnInit {
         window.location.reload()
       }
     })
+  }
 
+  imageClick(){
+    alert("kliknuto na sliku")
   }
 }

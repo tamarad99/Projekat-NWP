@@ -21,6 +21,8 @@ import { AddSongComponent } from './add-song/add-song.component';
 import {MatSelectModule} from '@angular/material/select';
 import { RemoveSongComponent } from './remove-song/remove-song.component';
 import { UpdateSongComponent } from './update-song/update-song.component'
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { UpdateSongComponent } from './update-song/update-song.component'
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatMenuModule
   ],
   providers: [AuthGuardUser, AuthGuardAdmin, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]

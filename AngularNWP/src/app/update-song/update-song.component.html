@@ -2,15 +2,64 @@
     <div class="inside">
         <mat-card class="example-card">
             <div class="form-group">
-                <form #songForm="ngForm" (ngSubmit)="updateSong(songForm)">
+                <form #form="ngForm" (ngSubmit)="updateSong(form)">
                     <div ngModelGroup="song">
-                        <mat-card-title class="header">Update song</mat-card-title><br>
+                        <mat-card-title class="header">Update song</mat-card-title>
                         <form class="search">
-                            <input style="margin-right: 5px;" class="form-control" type="search" aria-label="Choose song" placeholder="Choose song"><br>
-                            <button class="btn btn-primary" type="submit">Search</button>
-                        </form><br><br>
+                            <input style="margin-right: 5px;" class="form-control" type="search" aria-label="Choose song" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Choose song"><br>
+                            <button class="btn btn-primary" (click)="search()" type="submit">Search</button>
+                        </form>
                     </div>
-                </form>
+                </form><br>
+            </div>
+            <div *ngIf="song != undefined">
+                <div class="form-group">
+                    <form #songForm="ngForm" (ngSubmit)="updateSong(songForm)">
+                        <div ngModelGroup="song">
+                            <mat-card-title class="header">Update song</mat-card-title>
+                            <img [src]="song.imageURL" class="card-img-top" style="max-width: 120px; max-height:120px">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Name</mat-label>
+                                <input matInput type="text" placeholder="{{song.name}}" name="name"
+                                        ngModel #name="ngModel">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Artist</mat-label>
+                                <input matInput type="text" placeholder="{{song.artist}}" name="artist"
+                                        ngModel #artist="ngModel">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Album</mat-label>
+                                <input matInput type="text" placeholder="{{song.album}}" name="album"
+                                        ngModel #album="ngModel">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Image URL</mat-label>
+                                <input matInput type="text" placeholder="Image URL"
+                                        name="imageURL" ngModel #imageURL="ngModel">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Description</mat-label>
+                                <input matInput type="text" placeholder="Description"
+                                        name="{{song.description}}" ngModel #description="ngModel">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Year</mat-label>
+                                <input matInput type="number" placeholder="{{song.year}}" name="year"
+                                        ngModel #year="ngModel" max="2022">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Rang</mat-label>
+                                <input matInput type="number" placeholder="{{song.rang}}" name="rang"
+                                        ngModel #rang="ngModel" max="10" min="1">
+                            </mat-form-field><br>
+                            <br>
+                            <div class="header">
+                                <button mat-button class="btn btn-danger" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </mat-card>
     </div>
