@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Song } from './model/song';
@@ -14,8 +15,11 @@ export class AppComponent {
 
   public artists: string[] | undefined;
   public songs: Song[] | undefined;
+  public currentLocation: String | undefined;
 
-  constructor(private userService:UserService, private router:Router, private songSevice:SongService){}
+  constructor(private userService:UserService, private router:Router, private songSevice:SongService){
+    
+  }
 
   ngOnInit(){
     this.songSevice.getArtists().subscribe((resp:any) => this.artists = resp);
@@ -29,7 +33,8 @@ export class AppComponent {
     this.songSevice.sogsForArtist(artist).subscribe((resp:any) => {this.songs = resp
     console.log(this.songs)})
     this.songSevice.setSongs(this.songs!);
-    setTimeout(() => this.router.navigate(['/song/list']), 2000);
+    console.log("navigiram se")
+    this.router.navigate(['/song/list', {artist: artist}])
     
   }
 }

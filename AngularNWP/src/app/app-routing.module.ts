@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "song/item", component: SongItemComponent},
   {path: "song/list", component: SongListComponent},
+  // {path: "song/list/**", component: SongListComponent},
   {path: "song/addSong", component: AddSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "song/removeSong", component: RemoveSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "song/updateSong", component: UpdateSongComponent, canActivate:[AuthGuardAdmin]},

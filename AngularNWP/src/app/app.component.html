@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background-color: #F7EBEB;">
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -10,7 +10,7 @@
                         <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" routerLink="/song/list" routerLinkActive="active">Songs</a>
+                        <a class="nav-link" href="/song/list" routerLinkActive="active">Songs</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" routerLink="/song/addSong" routerLinkActive="active">Add song</a>
@@ -21,14 +21,16 @@
                     <li class="nav-item active">
                         <a class="nav-link" routerLink="/song/updateSong" routerLinkActive="active">Update song</a>
                     </li>
-                    <button class="btn btn-dark" mat-button [matMenuTriggerFor]="menu">Artists</button>
-                    <mat-menu #menu="matMenu">
-                        <div  *ngFor="let artist of artists">
-                            <button mat-menu-item (click)="artistSongs(artist)">{{artist}}</button>
-                        </div>
-                    </mat-menu>
+                    <!-- <div *ngIf="currentLocation == 'http://localhost:4200/song/list'"> -->
+                        <button class="btn btn-dark" mat-button [matMenuTriggerFor]="menu">Artists</button>
+                        <mat-menu #menu="matMenu">
+                            <div *ngFor="let artist of artists">
+                                <button mat-menu-item (click)="artistSongs(artist)">{{artist}}</button>
+                            </div>
+                        </mat-menu>
+                    <!-- </div> -->
                 </ul>
-                <div style="margin-left: 600px;">
+                <div style="margin-left: 660px;">
                     <button class="btn btn-light" (click)="logout()">Logout</button>
                 </div>
             </div>

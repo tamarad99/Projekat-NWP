@@ -72,6 +72,6 @@ export class SongItemComponent implements OnInit {
   }
 
   imageClick(){
-    alert("kliknuto na sliku")
+  
   }
 }
