@@ -33,8 +33,8 @@
         <p class="card-text">{{song.artist}}</p>
 
         <p class="card-text"><button (click)="decrementRating()" type="button"
-                class="btn btn-light">-</button>{{song.rang}}
-            <button (click)="incrementRating()" type="button" class="btn btn-light">+</button>
+                class="btn btn-dark">-</button>{{song.rang}}
+            <button (click)="incrementRating()" type="button" class="btn btn-dark">+</button>
         </p>
         <div *ngIf="role == 'admin'"><button (click)="removeSong(remove)" class="btn btn-light">Remove</button></div>
     </div>
