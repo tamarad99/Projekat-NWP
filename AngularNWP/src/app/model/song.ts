@@ -9,10 +9,11 @@ export class Song {
     album: string;
     year:number;
     artist:string;
+    fav: boolean;
 
     constructor(id:number, name:string,
         imageURL:string, rang:number,
-        description:string, album:string, artist:string, year:number){
+        description:string, album:string, artist:string, year:number, fav:boolean){
             this.id = id;
             this.name = name;
             this.rang = rang;
@@ -21,5 +22,6 @@ export class Song {
             this.imageURL = imageURL;
             this.artist = artist;
             this.year = year
+            this.fav = false;
         }
 }

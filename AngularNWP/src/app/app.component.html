@@ -21,16 +21,19 @@
                     <li class="nav-item active">
                         <a class="nav-link" routerLink="/song/updateSong" routerLinkActive="active">Update song</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/song/favourite" routerLinkActive="active">Favourites</a>
+                    </li>
                     <!-- <div *ngIf="currentLocation == 'http://localhost:4200/song/list'"> -->
-                        <button class="btn btn-dark" mat-button [matMenuTriggerFor]="menu">Artists</button>
-                        <mat-menu #menu="matMenu">
-                            <div *ngFor="let artist of artists">
-                                <button mat-menu-item (click)="artistSongs(artist)">{{artist}}</button>
-                            </div>
-                        </mat-menu>
+                    <button class="btn btn-dark" mat-button [matMenuTriggerFor]="menu">Artists</button>
+                    <mat-menu #menu="matMenu">
+                        <div *ngFor="let artist of artists">
+                            <button mat-menu-item (click)="artistSongs(artist)">{{artist}}</button>
+                        </div>
+                    </mat-menu>
                     <!-- </div> -->
                 </ul>
-                <div style="margin-left: 660px;">
+                <div style="margin-left: 550px;">
                     <button class="btn btn-light" (click)="logout()">Logout</button>
                 </div>
             </div>

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     if(resp.role != undefined){
       localStorage.setItem('token', resp.token);
       localStorage.setItem('role', resp.role.name);
-
+      localStorage.setItem('username', loginForm.value.username)
       if(localStorage.getItem('role') == "user"){
         this.router.navigate(['/song/list'])
         alert("Uspesno ste ulogovani kao korisnik")

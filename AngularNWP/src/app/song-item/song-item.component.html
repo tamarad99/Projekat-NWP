@@ -23,20 +23,23 @@
 </div> -->
 <form #remove="ngForm">
 <div class="card text-white bg-dark mb-3" style="width: 18rem;" style="margin-left:5px" *ngIf="song != undefined">
-    <!-- *ngIf="song != undefined && song.album != undefined && song.album.artist != undefined"> -->
-
     <img [src]="song.imageURL" class="card-img-top" style="max-width: 100%;
     height: auto;" (click)="imageClick()">
     <div class="card-body">
         <h4 class="card-title">{{song.name}}</h4>
         <p class="card-text">Album: {{song.album}}</p>
         <p class="card-text">{{song.artist}}</p>
-
+        <p class="card-text">{{bool}}</p>
         <p class="card-text"><button (click)="decrementRating()" type="button"
                 class="btn btn-dark">-</button>{{song.rang}}
             <button (click)="incrementRating()" type="button" class="btn btn-dark">+</button>
         </p>
-        <div *ngIf="role == 'admin'"><button (click)="removeSong(remove)" class="btn btn-light">Remove</button></div>
+        <div *ngIf="role == 'admin'"><button (click)="removeSong(remove)" class="btn btn-light">Remove</button></div><br>
+        <div class="example-button-container" >
+            <button [disabled]="bool" mat-mini-fab color="warn" (click)="addFav()" aria-label="Example icon button with a heart icon" >
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </div>
     </div>
 </div>
 </form>

@@ -23,6 +23,9 @@ import { RemoveSongComponent } from './remove-song/remove-song.component';
 import { UpdateSongComponent } from './update-song/update-song.component'
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
+import { FavouriteSongsComponent } from './favourite-songs/favourite-songs.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import {MatMenuModule} from '@angular/material/menu';
     SongListComponent,
     AddSongComponent,
     RemoveSongComponent,
-    UpdateSongComponent
+    UpdateSongComponent,
+    FavouriteSongsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     MatSelectModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [AuthGuardUser, AuthGuardAdmin, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]

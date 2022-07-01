@@ -14,15 +14,16 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class SongListComponent implements OnInit{
 
-  private navSubscription = new Subscription();
-
   public songs$: Observable<Song[]> | undefined;
   public songSearch$: Observable<Song[]> | undefined;
+  public favSongs$ :Observable<Song[]> | undefined;
   public reloadList: Subject<void> = new Subject();
   public searchTerm: string | undefined;
   public searchSubject: Subject<string> = new Subject();
   public songsForArtist: Observable<Song[]> = of(this.songService.getSongsForArtist()!);
   public undf: Observable<Song[]> = of(undefined!);
+  public songToFav:string|undefined;
+  
   constructor(private songService: SongService, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       if(params.artist){
@@ -30,13 +31,6 @@ export class SongListComponent implements OnInit{
         this.songs$ = this.songService.sogsForArtist(params.artist);
       }
     });
-    
-    // this.navSubscription = this.router.events.subscribe((e: any) => {
-    //   console.log('route event triggered'); // this line is never reached
-    //   if (e instanceof NavigationEnd) {
-    //     // do initialization code
-    //   }
-    // });
   }
 
   ngOnInit(): void {
@@ -70,6 +64,20 @@ export class SongListComponent implements OnInit{
 
     console.log("id: " + change.song.id)
     console.log("change: " + change.changeInRating)
+  }
+
+  onFav(song: string){
+    console.log("emitovalo se: " + song)
+    this.favSongs$ = this.songService.addToFavourite(song);
+    this.songService.addToFavourite(song).subscribe((resp:any) => {
+      if(resp!=null){
+        this.songToFav = song
+        console.log("u omiljene " + this.songToFav)
+        alert("Dodato u omiljene")
+        
+        this.router.navigate(['/song/favourite'])
+      }
+    })
   }
 
   search() {

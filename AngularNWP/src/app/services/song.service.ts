@@ -77,4 +77,24 @@ export class SongService {
   clearData(){
     this.songs = undefined;
   }
+
+  addToFavourite(song:string):Observable<any>{
+    let params = new HttpParams().set('song', song).set('username', localStorage.getItem('username')!);
+    return this.httpClient.post(this.BASE + "/song/addFavouriteSong", params)
+  }
+
+  getFavs(username:string):Observable<Song[]>{
+    let params = new HttpParams().set('username', localStorage.getItem('username')!);
+    return this.httpClient.get<Song[]>(this.BASE + "/song/getFavourites", {params:params})
+  }
+
+  removeFromFavs(song:string):Observable<any>{
+    let params = new HttpParams().set('song', song).set('username', localStorage.getItem('username')!);
+    return this.httpClient.post(this.BASE + "/song/removeFavouriteSong", params)
+  }
+
+  exists(song:string):Observable<any>{
+    let params = new HttpParams().set('song', song).set('username', localStorage.getItem('username')!);
+    return this.httpClient.get(this.BASE + "/song/exists", {params:params})
+  }
 }
