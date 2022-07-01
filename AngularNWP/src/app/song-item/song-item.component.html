@@ -26,10 +26,10 @@
     <img [src]="song.imageURL" class="card-img-top" style="max-width: 100%;
     height: auto;" (click)="imageClick()">
     <div class="card-body">
-        <h4 class="card-title">{{song.name}}</h4>
+        <h3 class="card-title">{{song.name}}</h3>
         <p class="card-text">Album: {{song.album}}</p>
         <p class="card-text">{{song.artist}}</p>
-        <p class="card-text">{{bool}}</p>
+        <!-- <p class="card-text">{{bool}}</p> -->
         <p class="card-text"><button (click)="decrementRating()" type="button"
                 class="btn btn-dark">-</button>{{song.rang}}
             <button (click)="incrementRating()" type="button" class="btn btn-dark">+</button>

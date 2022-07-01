@@ -17,7 +17,7 @@ export class AuthGuardUser implements CanActivate{
                 return true;
             }
         }
-
+        alert("Morate biti ulogovani!")
         this.router.navigate(['login'])
         return false;
     }

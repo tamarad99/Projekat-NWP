@@ -11,15 +11,15 @@ import { RegisterComponent } from './user/register/register.component';
 import { RemoveSongComponent } from './remove-song/remove-song.component'
 import { UpdateSongComponent } from './update-song/update-song.component';
 import { FavouriteSongsComponent } from './favourite-songs/favourite-songs.component';
+import { AuthGuardLogin } from './guard/auth.guard.login';
 
 const routes: Routes = [
   {path: "", redirectTo: "login", pathMatch: "full"},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
-  {path: "song/item", component: SongItemComponent},
-  {path: "song/list", component: SongListComponent},
-  // {path: "song/list/**", component: SongListComponent},
-  {path: "song/favourite", component: FavouriteSongsComponent},
+  {path: "song/item", component: SongItemComponent, canActivate:[AuthGuardLogin]},
+  {path: "song/list", component: SongListComponent, canActivate:[AuthGuardLogin]},
+  {path: "song/favourite", component: FavouriteSongsComponent, canActivate:[AuthGuardLogin]},
   {path: "song/addSong", component: AddSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "song/removeSong", component: RemoveSongComponent, canActivate:[AuthGuardAdmin]},
   {path: "song/updateSong", component: UpdateSongComponent, canActivate:[AuthGuardAdmin]},

@@ -26,6 +26,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { FavouriteSongsComponent } from './favourite-songs/favourite-songs.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { AuthGuardLogin } from './guard/auth.guard.login';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatButtonModule
   ],
-  providers: [AuthGuardUser, AuthGuardAdmin, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
+  providers: [AuthGuardUser, AuthGuardAdmin, AuthGuardLogin, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
